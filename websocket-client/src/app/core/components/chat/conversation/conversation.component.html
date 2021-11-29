@@ -1,0 +1,61 @@
+<div class="container-sm">
+
+    <div class="col chat-header text-center pt-2 pb-2">
+        <div class="row align-items-center">
+            <div class="col-1">
+                <button class="btn btn-dark" (click)="comeBackListUsersComponent()"> &lt;</button>
+            </div>
+            <div class="col text-center">
+                {{ data.name }}
+            </div>
+        </div>
+    </div>
+
+    <div class="col chat-body">
+
+        <div class="col" *ngFor="let message of messages">
+            <div [ngSwitch]="message.from.username">
+                <div *ngSwitchCase="friend">
+                    <div class="col body-from mt-3">
+                        <div class="row">
+                            <div class="col-1 from-image align-self-end">
+                                <img src="https://www.autokims.com.mx/imagenes/profile3.png" alt="" width="100%">
+                            </div>
+                            <div class="col-10 from-text pt-2 pb-2"> {{ message.message }} </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="user">
+                    <div class="col body-you mt-4 mb-4">
+                        <div class="row justify-content-end">
+                            <div class="col-8 you-text pt-2 pb-2"> {{ message.message }} </div>
+                            <div class="col-1 you-image align-self-end">
+                                <img src="https://w0.peakpx.com/wallpaper/107/46/HD-wallpaper-best-pose-for-profile-for-men-profile-pose-men-best-glasses.jpg"
+                                    alt="" width="100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col mt-4 mb-4">
+        <div class="row">
+            <div class="col-8">
+                <form [formGroup]="sendMessageForm" (ngSubmit)="sendMessage()">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" formControlName="message" placeholder="Type something">
+                        <div class="col"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-3 align-self-center">
+                <button type="submit" class="btn btn-primary" (click)="sendMessage()">Send message</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,5 @@
+<div class="container-sm">
+    <div class="col mt-2 mb-2" *ngFor="let friend of friends">
+        <button class="btn" (click)="goToMessages(friend)">{{ friend.username }}</button>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="col pt-2 pb-2 header-home text-center text-white">
+        <div class="row">
+            <div class="col text-center">
+                <button type="button" class="btn btn-primary position-relative">
+                    Messages <span
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+{{ messagesNotRead }}
+                        <span class="visually-hidden">unread messages</span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="position-relative">
+        <div class="position-absolute top-100 start-0 chat-container">
+            <app-chat [ads]="ads"></app-chat>
+        </div>
+    </div>
+
+</div>
